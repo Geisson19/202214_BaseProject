@@ -18,27 +18,27 @@ export class SocioController {
   @Post()
   async create(@Body() createSocioDto: Socio) {
     const socio = plainToInstance(Socio, createSocioDto);
-    return this.socioService.create(socio);
+    return await this.socioService.create(socio);
   }
 
   @Get()
   async findAll() {
-    return this.socioService.findAll();
+    return await this.socioService.findAll();
   }
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    return this.socioService.findOne(id);
+    return await this.socioService.findOne(id);
   }
 
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateSocioDto: Socio) {
     const socio = plainToInstance(Socio, updateSocioDto);
-    return this.socioService.update(id, socio);
+    return await this.socioService.update(id, socio);
   }
 
   @Delete(':id')
   async delete(@Param('id') id: string) {
-    return this.socioService.delete(id);
+    return await this.socioService.delete(id);
   }
 }
