@@ -13,7 +13,14 @@ export class SocioService {
     private readonly socioRepository: Repository<Socio>,
   ) {}
 
+  isValidEmail(socio: Socio) {
+    return socio.correo.includes('@');
+  }
+
   async create(socio: Socio) {
+    if (!this.isValidEmail(socio)) {
+      return;
+    }
     return await this.socioRepository.save(socio);
   }
 
@@ -45,6 +52,10 @@ export class SocioService {
         'The socio with the given id was not found',
         BusinessError.NOT_FOUND,
       );
+
+    if (!this.isValidEmail(socio)) {
+      return;
+    }
 
     return await this.socioRepository.save({
       ...persistedSocio,

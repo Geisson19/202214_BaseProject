@@ -14,8 +14,15 @@ export class ClubService {
     private readonly clubRepository: Repository<Club>,
   ) {}
 
-  async create(createClubDto: Club) {
-    return await this.clubRepository.save(createClubDto);
+  isDescriptionValid(club: Club) {
+    return club.descripcion.length <= 100;
+  }
+
+  async create(club: Club) {
+    if (!this.isDescriptionValid(club)) {
+      return;
+    }
+    return await this.clubRepository.save(club);
   }
 
   async findAll() {
@@ -37,7 +44,7 @@ export class ClubService {
     return club;
   }
 
-  async update(id: string, updateClubDto: Club) {
+  async update(id: string, club: Club) {
     const persistedClub: Club = await this.clubRepository.findOne({
       where: { id },
     });
@@ -48,9 +55,13 @@ export class ClubService {
         BusinessError.NOT_FOUND,
       );
 
+    if (!this.isDescriptionValid(club)) {
+      return;
+    }
+
     return await this.clubRepository.save({
       ...persistedClub,
-      ...updateClubDto,
+      ...club,
     });
   }
 

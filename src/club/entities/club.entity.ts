@@ -15,9 +15,7 @@ export class Club {
   @Column()
   imageUrl: string;
 
-  @Column({
-    length: 100,
-  })
+  @Column({ length: 100 })
   descripcion: string;
 
   @OneToMany(() => Socio, (socio) => socio.club)
