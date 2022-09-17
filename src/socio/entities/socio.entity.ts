@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Club } from 'src/club/entities/club.entity';
+import { Club } from '../../club/entities/club.entity';
 
 @Entity()
 export class Socio {

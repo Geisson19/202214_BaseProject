@@ -30,7 +30,7 @@ export class ClubService {
    */
   async create(club: Club) {
     if (!this.isDescriptionValid(club)) {
-      return;
+      return null;
     }
     return await this.clubRepository.save(club);
   }
@@ -82,7 +82,7 @@ export class ClubService {
       );
 
     if (!this.isDescriptionValid(club)) {
-      return;
+      return null;
     }
 
     return await this.clubRepository.save({

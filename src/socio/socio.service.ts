@@ -3,7 +3,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm/dist';
 
 import { Socio } from './entities/socio.entity';
-import { BusinessLogicException } from 'shared/errors/business-errors';
+import { BusinessLogicException } from '../../shared/errors/business-errors';
 import { BusinessError } from '../../shared/errors/business-errors';
 
 @Injectable()
