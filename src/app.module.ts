@@ -10,6 +10,7 @@ import { ClubSocioModule } from './club-socio/club-socio.module';
   imports: [
     SocioModule,
     ClubModule,
+    ClubSocioModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -22,7 +23,6 @@ import { ClubSocioModule } from './club-socio/club-socio.module';
       synchronize: true,
       keepConnectionAlive: true,
     }),
-    ClubSocioModule,
   ],
 })
 export class AppModule {}
