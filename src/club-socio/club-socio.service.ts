@@ -104,7 +104,7 @@ export class ClubSocioService {
     if (!clubSocio)
       throw new BusinessLogicException(
         'The socio with the given id is not associated to the club',
-        BusinessError.NOT_FOUND,
+        BusinessError.PRECONDITION_FAILED,
       );
 
     return clubSocio;
@@ -179,7 +179,7 @@ export class ClubSocioService {
     if (!clubSocio)
       throw new BusinessLogicException(
         'The socio with the given id is not associated to the club',
-        BusinessError.NOT_FOUND,
+        BusinessError.PRECONDITION_FAILED,
       );
 
     club.socios = club.socios.filter((socio) => socio.id !== socioId);

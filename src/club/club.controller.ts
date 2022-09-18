@@ -9,6 +9,7 @@ import {
   HttpStatus,
   HttpCode,
   UseInterceptors,
+  ParseUUIDPipe,
 } from '@nestjs/common';
 import { ClubService } from './club.service';
 import { Club } from './entities/club.entity';
@@ -16,8 +17,8 @@ import { plainToInstance } from 'class-transformer';
 import { ClubDto } from './dto/club.dto';
 import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors.interceptor';
 
-@Controller('clubs')
 @UseInterceptors(BusinessErrorsInterceptor)
+@Controller('clubs')
 export class ClubController {
   constructor(private readonly clubService: ClubService) {}
 
@@ -33,7 +34,7 @@ export class ClubController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  async findOne(@Param('id', ParseUUIDPipe) id: string) {
     return await this.clubService.findOne(id);
   }
 
