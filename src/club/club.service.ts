@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import {
   BusinessLogicException,
   BusinessError,
-} from '../../../../APIS/MISW4403_202214_Equipo06/src/shared/errors/business-errors';
+} from '../shared/errors/business-errors';
 
 @Injectable()
 export class ClubService {
