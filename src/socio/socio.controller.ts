@@ -14,7 +14,7 @@ import { SocioService } from './socio.service';
 import { plainToInstance } from 'class-transformer';
 import { Socio } from './entities/socio.entity';
 import { SocioDto } from './dto/socio.dto';
-import { BusinessErrorsInterceptor } from '../../shared/interceptors/business-errors.interceptor';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors.interceptor';
 
 @Controller('members')
 @UseInterceptors(BusinessErrorsInterceptor)

@@ -1,6 +1,6 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Socio } from '../../../src/socio/entities/socio.entity';
-import { Club } from '../../../src/club/entities/club.entity';
+import { Socio } from '../../../socio/entities/socio.entity';
+import { Club } from '../../../club/entities/club.entity';
 
 export const TypeOrmTestingConfig = () => [
   TypeOrmModule.forRoot({

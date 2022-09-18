@@ -3,7 +3,7 @@ import { ClubSocioService } from './club-socio.service';
 import { Repository } from 'typeorm';
 import { Club } from '../club/entities/club.entity';
 import { Socio } from '../socio/entities/socio.entity';
-import { TypeOrmTestingConfig } from '../../shared/utils/testing-utils/typeorm-testing-config';
+import { TypeOrmTestingConfig } from '../shared/utils/testing-utils/typeorm-testing-config';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { faker } from '@faker-js/faker';
 

@@ -14,7 +14,7 @@ import { ClubService } from './club.service';
 import { Club } from './entities/club.entity';
 import { plainToInstance } from 'class-transformer';
 import { ClubDto } from './dto/club.dto';
-import { BusinessErrorsInterceptor } from '../../shared/interceptors/business-errors.interceptor';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors.interceptor';
 
 @Controller('clubs')
 @UseInterceptors(BusinessErrorsInterceptor)
@@ -22,8 +22,8 @@ export class ClubController {
   constructor(private readonly clubService: ClubService) {}
 
   @Post()
-  async create(@Body() createClubDto: ClubDto) {
-    const club: Club = plainToInstance(Club, createClubDto);
+  async create(@Body() clubDto: ClubDto) {
+    const club: Club = plainToInstance(Club, clubDto);
     return await this.clubService.create(club);
   }
 

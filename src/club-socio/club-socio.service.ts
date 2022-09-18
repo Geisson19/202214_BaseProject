@@ -3,8 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Club } from '../club/entities/club.entity';
 import { Socio } from '../socio/entities/socio.entity';
 import { Repository } from 'typeorm';
-import { BusinessLogicException } from '../../shared/errors/business-errors';
-import { BusinessError } from '../../shared/errors/business-errors';
+import { BusinessLogicException } from '../shared/errors/business-errors';
+import { BusinessError } from '../shared/errors/business-errors';
 
 @Injectable()
 export class ClubSocioService {
